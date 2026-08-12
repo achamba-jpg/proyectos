@@ -1,0 +1,22 @@
+{
+  "name": "homo-sapiens-project",
+  "version": "1.2.0",
+  "description": "Página educativa sobre Homo sapiens con diseño moderno",
+  "main": "script.js",
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc --watch",
+    "start": "open index.html"
+  },
+  "keywords": [
+    "homo-sapiens",
+    "educativo",
+    "historia",
+    "web-design"
+  ],
+  "author": "Ángel",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^5.0.0"
+  }
+}
