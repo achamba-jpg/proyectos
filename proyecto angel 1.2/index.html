@@ -4,13 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mundo de los Homo sapiens</title>
+    <meta name="description" content="Descubre todo sobre Homo sapiens, nuestra fascinante especie">
+    <meta name="theme-color" content="#2563eb">
+    <title>Homo sapiens - La Especie Inteligente</title>
     
-    <!-- Google Fonts - Tipografía premium -->
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     
-    <!-- Estilos -->
+    <!-- Estilos CSS -->
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles-curiosidades.css">
+    <link rel="stylesheet" href="interactive.css">
 </head>
 
 <body>
@@ -19,7 +23,7 @@
         <div class="nav-container">
             <div class="logo">🌍 Homo sapiens</div>
             <ul class="nav-menu">
-                <li><a href="#inicio" class="nav-link active">Inicio</a></li>
+                <li><a href="index.html" class="nav-link active">Inicio</a></li>
                 <li><a href="#descripcion" class="nav-link">Descripción</a></li>
                 <li><a href="curiosidades.html" class="nav-link">Curiosidades</a></li>
             </ul>
@@ -31,86 +35,202 @@
         </div>
     </nav>
 
-    <!-- HEADER HERO -->
-    <header class="hero" id="inicio">
+    <!-- HERO SECTION -->
+    <header class="hero">
         <div class="hero-content">
-            <h1 class="hero-title">Mundo de los <span class="highlight">Homo sapiens</span></h1>
-            <p class="hero-subtitle">Descubre la fascinante historia de nuestra especie y su evolución</p>
-            <a href="#descripcion" class="btn btn-primary">Explorar</a>
+            <h1 class="hero-title">Bienvenido a la Historia de <span class="highlight">Homo sapiens</span></h1>
+            <p class="hero-subtitle">Descubre cómo nuestra especie conquistó el mundo y se convirtió en la más inteligente del planeta</p>
+            <div class="hero-buttons">
+                <a href="curiosidades.html" class="btn btn-primary">🔍 Datos Curiosos</a>
+                <a href="#descripcion" class="btn btn-secondary">📖 Leer Más</a>
+            </div>
         </div>
-        <div class="hero-image">
-            <img src="homosapies.png" alt="Homo sapiens" class="fade-in">
+        <div class="hero-stats">
+            <div class="stat">
+                <h3>300,000+</h3>
+                <p>Años de existencia</p>
+            </div>
+            <div class="stat">
+                <h3>8 Billones</h3>
+                <p>Humanos vivos actualmente</p>
+            </div>
+            <div class="stat">
+                <h3>6,000+</h3>
+                <p>Idiomas hablados</p>
+            </div>
         </div>
     </header>
 
     <!-- SECCIÓN DESCRIPCIÓN -->
-    <section class="descripcion" id="descripcion">
+    <section id="descripcion" class="description-section">
         <div class="container">
-            <h2 class="section-title">¿Quiénes son los <span class="highlight">Homo sapiens</span>?</h2>
+            <h2 class="section-title">¿Quiénes somos <span class="highlight">Homo sapiens</span>?</h2>
             
-            <div class="content-card">
-                <p class="content-text">
-                    Los <strong>Homo sapiens</strong> son la única especie humana que ha logrado desarrollar una 
-                    <strong class="text-primary">inteligencia avanzada</strong>, permitiéndoles crear herramientas, 
-                    comunicarse mediante el lenguaje y formar grandes civilizaciones. Su evolución ha sido fundamental 
-                    para la <strong class="text-secondary">historia de la humanidad</strong> y el desarrollo de la 
-                    <strong class="text-primary">ciencia, la cultura y la tecnología</strong>.
-                </p>
-            </div>
+            <div class="description-grid">
+                <!-- Tarjeta 1 -->
+                <div class="feature-card">
+                    <div class="feature-icon">🧬</div>
+                    <h3>Genéticamente Avanzados</h3>
+                    <p>Poseemos 46 cromosomas y un ADN único que nos diferencia de otros primates. Nuestro código genético es el resultado de millones de años de evolución.</p>
+                </div>
 
-            <div class="features">
+                <!-- Tarjeta 2 -->
                 <div class="feature-card">
                     <div class="feature-icon">🧠</div>
-                    <h3>Inteligencia</h3>
-                    <p>Capacidad de razonamiento avanzado y resolución de problemas complejos</p>
+                    <h3>Inteligencia Superior</h3>
+                    <p>Con 86 mil millones de neuronas, nuestro cerebro es capaz de resolver problemas complejos, crear arte, ciencia y tecnología avanzada.</p>
                 </div>
+
+                <!-- Tarjeta 3 -->
                 <div class="feature-card">
                     <div class="feature-icon">🗣️</div>
-                    <h3>Lenguaje</h3>
-                    <p>Sistema de comunicación complejo y sofisticado</p>
+                    <h3>Lenguaje Complejo</h3>
+                    <p>Desarrollamos sistemas de comunicación sofisticados que nos permiten expresar ideas abstractas y transmitir conocimiento entre generaciones.</p>
                 </div>
+
+                <!-- Tarjeta 4 -->
                 <div class="feature-card">
-                    <div class="feature-icon">🛠️</div>
-                    <h3>Tecnología</h3>
-                    <p>Creación y uso de herramientas cada vez más avanzadas</p>
+                    <div class="feature-icon">🌐</div>
+                    <h3>Adaptabilidad Global</h3>
+                    <p>Logramos colonizar todos los continentes, adaptándonos a climas extremos desde el Ártico hasta desiertos inhóspitos.</p>
                 </div>
+
+                <!-- Tarjeta 5 -->
                 <div class="feature-card">
-                    <div class="feature-icon">🌟</div>
-                    <h3>Cultura</h3>
-                    <p>Desarrollo de arte, tradiciones y sistemas sociales complejos</p>
+                    <div class="feature-icon">🤝</div>
+                    <h3>Cooperación Social</h3>
+                    <p>Creamos sociedades complejas, culturas ricas y sistemas de cooperación que permiten organizaciones de millones de individuos.</p>
+                </div>
+
+                <!-- Tarjeta 6 -->
+                <div class="feature-card">
+                    <div class="feature-icon">🚀</div>
+                    <h3>Innovación Constante</h3>
+                    <p>Desarrollamos herramientas, tecnología y ciencia. Desde fuego hasta viajes espaciales, nuestra capacidad de innovar es sin límites.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- SECCIÓN CTA -->
+    <!-- SECCIÓN ORIGEN Y EVOLUCIÓN -->
+    <section class="evolution-section">
+        <div class="container">
+            <h2 class="section-title">Nuestro Camino Evolutivo</h2>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-marker">🦍</div>
+                    <h3>Australopithecus (4M años)</h3>
+                    <p>Primeros homínidos bípedos con cerebro pequeño pero capacidad de andar erguidos.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker">👤</div>
+                    <h3>Homo habilis (2.5M años)</h3>
+                    <p>Primeros en crear herramientas de piedra y usar fuego de manera controlada.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker">🏃</div>
+                    <h3>Homo erectus (1.8M años)</h3>
+                    <p>Migran desde África y colonizan Europa y Asia. Desarrollan herramientas más sofisticadas.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker">❄️</div>
+                    <h3>Homo neanderthalensis (250k años)</h3>
+                    <p>Adaptados al clima frío europeo. Tenían cultura, arte y capacidad de comunicación compleja.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker">✨</div>
+                    <h3>Homo sapiens (300k años)</h3>
+                    <p>Nosotros. La especie más inteligente, creativa y adaptable del planeta.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN HABILIDADES -->
+    <section class="skills-section">
+        <div class="container">
+            <h2 class="section-title">Habilidades Únicas de <span class="highlight">Homo sapiens</span></h2>
+            
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h3>🎨 Creatividad</h3>
+                    <p>Creamos arte, música, literatura y películas que expresan nuestras emociones más profundas.</p>
+                </div>
+
+                <div class="skill-card">
+                    <h3>🔬 Ciencia</h3>
+                    <p>Descubrimos las leyes de la física, química, biología y entendemos el universo.</p>
+                </div>
+
+                <div class="skill-card">
+                    <h3>💻 Tecnología</h3>
+                    <p>Inventamos máquinas, computadoras e internet que conectan al mundo.</p>
+                </div>
+
+                <div class="skill-card">
+                    <h3>📚 Educación</h3>
+                    <p>Transmitimos conocimiento a través de escuelas, universidades y educación digital.</p>
+                </div>
+
+                <div class="skill-card">
+                    <h3>⚖️ Justicia</h3>
+                    <p>Creamos sistemas de leyes, gobiernos y democracias para organizar la sociedad.</p>
+                </div>
+
+                <div class="skill-card">
+                    <h3>🌱 Sostenibilidad</h3>
+                    <p>Nos esforzamos por proteger el planeta y crear un futuro sustentable para generaciones futuras.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN CTA (Call to Action) -->
     <section class="cta-section">
         <div class="container">
-            <h2>¿Quieres aprender más datos fascinantes?</h2>
-            <div class="cta-buttons">
-                <a href="https://www.youtube.com/watch?v=2M0_yPVu9mk" target="_blank" class="btn btn-primary">
-                    ▶ Ver Video
-                </a>
-                <a href="curiosidades.html" class="btn btn-secondary">
-                    💡 Datos Curiosos
-                </a>
-            </div>
+            <h2>¿Quieres Aprender Más?</h2>
+            <p>Descubre datos fascinantes y curiosidades sobre nuestra especie</p>
+            <a href="curiosidades.html" class="btn btn-primary btn-large">
+                🔍 Ir a Curiosidades
+            </a>
         </div>
     </section>
 
     <!-- FOOTER -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2026 Mundo de los Homo sapiens. Diseñado con <span class="heart">❤️</span> por Ángel</p>
-            <div class="footer-links">
-                <a href="#inicio">Inicio</a>
-                <a href="#descripcion">Descripción</a>
-                <a href="curiosidades.html">Curiosidades</a>
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Sobre este Proyecto</h3>
+                    <p>Una página educativa moderna sobre Homo sapiens, diseñada para aprender de manera interactiva.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Enlaces Rápidos</h3>
+                    <ul>
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="#descripcion">Descripción</a></li>
+                        <li><a href="curiosidades.html">Curiosidades</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contacto</h3>
+                    <p>Email: achamba@cincinnatus.edu.do</p>
+                    <p>GitHub: achamba-jpg</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Mundo de los Homo sapiens. Diseñado con <span class="heart">❤️</span> por Ángel</p>
+                <p>Versión 1.2 - <a href="README.md">Ver Documentación</a></p>
             </div>
         </div>
     </footer>
 
-    <!-- Script -->
+    <!-- Scripts -->
     <script src="script.js"></script>
 </body>
 
