@@ -1,0 +1,547 @@
+/* ============================================
+   VARIABLES Y COLORES
+   ============================================ */
+:root {
+    --primary: #3b82f6;
+    --primary-dark: #2563eb;
+    --secondary: #8b5cf6;
+    --success: #10b981;
+    --danger: #ef4444;
+    --warning: #f59e0b;
+    --dark: #1f2937;
+    --gray: #6b7280;
+    --light: #f3f4f6;
+    --border: #e5e7eb;
+    --shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.07);
+}
+
+/* ============================================
+   RESET Y ESTILOS GLOBALES
+   ============================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    color: var(--dark);
+    padding: 20px;
+}
+
+/* ============================================
+   CONTENEDOR PRINCIPAL
+   ============================================ */
+.container {
+    max-width: 700px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    animation: slideUp 0.5s ease;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ============================================
+   HEADER
+   ============================================ */
+.header {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    color: white;
+    padding: 40px 30px;
+    text-align: center;
+}
+
+.header-content {
+    animation: fadeIn 0.6s ease;
+}
+
+.title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.subtitle {
+    font-size: 1rem;
+    opacity: 0.95;
+    font-weight: 300;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* ============================================
+   CONTENIDO PRINCIPAL
+   ============================================ */
+.main-content {
+    padding: 30px;
+}
+
+/* ============================================
+   SECCIÓN DE ENTRADA
+   ============================================ */
+.input-section {
+    margin-bottom: 30px;
+}
+
+.input-container {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.task-input {
+    flex: 1;
+    padding: 12px 16px;
+    border: 2px solid var(--border);
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+    transition: all 0.3s ease;
+}
+
+.task-input:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.add-btn {
+    padding: 12px 24px;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Poppins', sans-serif;
+}
+
+.add-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(59, 130, 246, 0.4);
+}
+
+.add-btn:active {
+    transform: translateY(0);
+}
+
+/* Botones rápidos */
+.quick-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.quick-btn {
+    flex: 1;
+    padding: 10px 16px;
+    background: var(--light);
+    border: 2px solid var(--border);
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Poppins', sans-serif;
+}
+
+.quick-btn:hover {
+    background: var(--border);
+    transform: translateY(-2px);
+}
+
+.clear-btn:hover {
+    background: rgba(239, 68, 68, 0.1);
+    border-color: var(--danger);
+    color: var(--danger);
+}
+
+.sort-btn:hover {
+    background: rgba(59, 130, 246, 0.1);
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+/* ============================================
+   ESTADÍSTICAS
+   ============================================ */
+.stats-section {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.stat-card {
+    background: var(--light);
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.stat-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--primary);
+}
+
+.stat-value {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.stat-label {
+    font-size: 0.85rem;
+    color: var(--gray);
+    margin-top: 5px;
+}
+
+/* ============================================
+   FILTROS
+   ============================================ */
+.filters-section {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.filter-btn {
+    flex: 1;
+    padding: 10px 16px;
+    background: var(--light);
+    border: 2px solid var(--border);
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Poppins', sans-serif;
+}
+
+.filter-btn:hover {
+    border-color: var(--primary);
+    background: rgba(59, 130, 246, 0.05);
+}
+
+.filter-btn.active {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
+}
+
+/* ============================================
+   LISTA DE TAREAS
+   ============================================ */
+.tasks-section {
+    margin-bottom: 30px;
+    min-height: 200px;
+}
+
+.task-list {
+    list-style: none;
+}
+
+.task-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 16px;
+    background: var(--light);
+    border-radius: 10px;
+    margin-bottom: 12px;
+    transition: all 0.3s ease;
+    border-left: 4px solid var(--primary);
+    animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.task-item:hover {
+    background: white;
+    box-shadow: var(--shadow-sm);
+}
+
+.task-item.completed {
+    opacity: 0.6;
+}
+
+.task-item.completed .task-text {
+    text-decoration: line-through;
+    color: var(--gray);
+}
+
+/* Checkbox personalizado */
+.task-checkbox {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    accent-color: var(--success);
+}
+
+/* Contenido de la tarea */
+.task-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.task-text {
+    font-size: 1rem;
+    color: var(--dark);
+    word-break: break-word;
+    transition: all 0.3s ease;
+}
+
+.task-date {
+    font-size: 0.75rem;
+    color: var(--gray);
+    margin-top: 4px;
+}
+
+/* Prioridad */
+.task-priority {
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.task-priority.high {
+    background: rgba(239, 68, 68, 0.2);
+    color: var(--danger);
+}
+
+.task-priority.medium {
+    background: rgba(245, 158, 11, 0.2);
+    color: var(--warning);
+}
+
+.task-priority.low {
+    background: rgba(16, 185, 129, 0.2);
+    color: var(--success);
+}
+
+/* Botones de acción */
+.task-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.action-btn {
+    width: 36px;
+    height: 36px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    background: transparent;
+}
+
+.action-btn:hover {
+    transform: scale(1.1);
+}
+
+.edit-btn:hover {
+    background: rgba(59, 130, 246, 0.2);
+}
+
+.delete-btn:hover {
+    background: rgba(239, 68, 68, 0.2);
+}
+
+/* ============================================
+   ESTADO VACÍO
+   ============================================ */
+.empty-state {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--gray);
+}
+
+.empty-icon {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.empty-state p {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.empty-state small {
+    display: block;
+    font-size: 0.9rem;
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+.footer {
+    background: var(--light);
+    padding: 20px 30px;
+    border-top: 1px solid var(--border);
+}
+
+.footer-info {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.footer-info p {
+    font-size: 0.9rem;
+    color: var(--gray);
+}
+
+.export-btn,
+.reset-btn {
+    padding: 10px 16px;
+    background: white;
+    border: 2px solid var(--border);
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Poppins', sans-serif;
+}
+
+.export-btn:hover {
+    border-color: var(--primary);
+    background: rgba(59, 130, 246, 0.05);
+}
+
+.reset-btn:hover {
+    border-color: var(--danger);
+    background: rgba(239, 68, 68, 0.05);
+    color: var(--danger);
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 600px) {
+    .container {
+        border-radius: 12px;
+    }
+
+    .header {
+        padding: 30px 20px;
+    }
+
+    .title {
+        font-size: 2rem;
+    }
+
+    .main-content {
+        padding: 20px;
+    }
+
+    .input-container {
+        flex-direction: column;
+    }
+
+    .quick-buttons {
+        flex-direction: column;
+    }
+
+    .stats-section {
+        grid-template-columns: 1fr;
+    }
+
+    .task-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .task-actions {
+        width: 100%;
+        justify-content: flex-end;
+    }
+
+    .filters-section {
+        flex-direction: column;
+    }
+}
+
+/* ============================================
+   ANIMACIONES ADICIONALES
+   ============================================ */
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+.shake {
+    animation: shake 0.3s ease;
+}
+
+/* Animación de entrada */
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.fade-in-scale {
+    animation: fadeInScale 0.3s ease;
+}

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Aplicación Todo List - Gestor de tareas con localStorage">
+    <meta name="theme-color" content="#3b82f6">
+    <title>📝 Mi Lista de Tareas - Todo App</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header-content">
+                <h1 class="title">📝 Mi Lista de Tareas</h1>
+                <p class="subtitle">Gestiona tus tareas de forma simple y efectiva</p>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <!-- Sección de entrada de nueva tarea -->
+            <section class="input-section">
+                <div class="input-container">
+                    <input 
+                        type="text" 
+                        id="taskInput" 
+                        class="task-input" 
+                        placeholder="Agrega una nueva tarea..."
+                        autocomplete="off"
+                    >
+                    <button id="addBtn" class="add-btn">➕ Agregar</button>
+                </div>
+                <div class="quick-buttons">
+                    <button id="clearCompletedBtn" class="quick-btn clear-btn">🗑️ Limpiar Completadas</button>
+                    <button id="sortBtn" class="quick-btn sort-btn">🔄 Ordenar</button>
+                </div>
+            </section>
+
+            <!-- Estadísticas -->
+            <section class="stats-section">
+                <div class="stat-card">
+                    <div class="stat-value" id="totalTasks">0</div>
+                    <div class="stat-label">Total</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="pendingTasks">0</div>
+                    <div class="stat-label">Pendientes</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="completedTasks">0</div>
+                    <div class="stat-label">Completadas</div>
+                </div>
+            </section>
+
+            <!-- Filtros -->
+            <section class="filters-section">
+                <button class="filter-btn active" data-filter="all">Todas</button>
+                <button class="filter-btn" data-filter="pending">Pendientes</button>
+                <button class="filter-btn" data-filter="completed">Completadas</button>
+            </section>
+
+            <!-- Lista de tareas -->
+            <section class="tasks-section">
+                <ul id="taskList" class="task-list">
+                    <!-- Las tareas se generan aquí con JavaScript -->
+                </ul>
+                <div id="emptyState" class="empty-state">
+                    <div class="empty-icon">✨</div>
+                    <p>No hay tareas todavía</p>
+                    <small>¡Agrega tu primera tarea para comenzar!</small>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-info">
+                <p>💾 Tus tareas se guardan automáticamente en tu navegador</p>
+                <button id="exportBtn" class="export-btn">📥 Exportar Datos</button>
+                <button id="importBtn" class="export-btn">📤 Importar Datos</button>
+                <button id="resetBtn" class="reset-btn">🔄 Reiniciar</button>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Input oculto para importar -->
+    <input type="file" id="fileInput" style="display: none;" accept=".json">
+
+    <script src="script.js"></script>
+</body>
+</html>
