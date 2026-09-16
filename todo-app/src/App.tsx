@@ -1,18 +1,49 @@
 import { useEffect, useState } from 'react';
-import { Alert, AppBar, Box, Button, Card, CardContent, Chip, CircularProgress, Container, Dialog, DialogActions, DialogContent, DialogTitle, Drawer, Grid, IconButton, List, ListItemButton, ListItemText, Stack, Toolbar, Typography } from '@mui/material';
-import MenuIcon from '@mui/icons-material/Menu'; import LocalFireDepartmentIcon from '@mui/icons-material/LocalFireDepartment'; import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward'; import CloseIcon from '@mui/icons-material/Close'; import AutoAwesomeIcon from '@mui/icons-material/AutoAwesome'; import TerrainIcon from '@mui/icons-material/Terrain'; import GroupsIcon from '@mui/icons-material/Groups'; import RestaurantIcon from '@mui/icons-material/Restaurant';
-import { useAppDispatch, useAppSelector } from './hooks/redux'; import { loadEducation } from './store/educationSlice'; import { Section } from './types';
+import { Box } from '@mui/material';
+import Navigation from './components/Navigation';
+import { useAppDispatch, useAppSelector } from './hooks/redux';
+import { loadEducation } from './store/educationSlice';
+import HomePage from './pages/HomePage';
+import EvolutionPage from './pages/EvolutionPage';
+import DailyLifePage from './pages/DailyLifePage';
+import ToolsPage from './pages/ToolsPage';
+import CuriositiesPage from './pages/CuriositiesPage';
+import { Section } from './types';
 
-const nav: { id: Section; label: string }[] = [{ id: 'inicio', label: 'Inicio' }, { id: 'evolucion', label: 'Evolución' }, { id: 'vida', label: 'Vida cotidiana' }, { id: 'herramientas', label: 'Herramientas' }, { id: 'curiosidades', label: 'Curiosidades' }];
-const hero = 'https://raw.githubusercontent.com/achamba-jpg/proyectos/main/proyecto%20angel%201.2/neandertalesorgin.jpg';
-function App() { const dispatch = useAppDispatch(); const data = useAppSelector(s => s.education); const [section, setSection] = useState<Section>('inicio'); const [drawer, setDrawer] = useState(false); const [dialog, setDialog] = useState(false); useEffect(() => { dispatch(loadEducation()); }, [dispatch]); const go = (id: Section) => { setSection(id); setDrawer(false); document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' }); };
-return <Box><AppBar position="sticky" color="transparent" sx={{ bgcolor: 'rgba(41,32,25,.96)' }}><Toolbar sx={{ maxWidth: 1200, width: '100%', mx: 'auto' }}><TerrainIcon sx={{ color: '#fbbf24', mr: 1 }} /><Typography variant="h6" sx={{ flexGrow: 1, fontFamily: 'Georgia,serif', fontWeight: 800 }}>Mundo de los Homo sapiens</Typography><Stack direction="row" spacing={1} sx={{ display: { xs: 'none', md: 'flex' } }}>{nav.map(item => <Button key={item.id} onClick={() => go(item.id)} color="inherit">{item.label}</Button>)}</Stack><IconButton color="inherit" onClick={() => setDrawer(true)} sx={{ display: { md: 'none' } }}><MenuIcon /></IconButton></Toolbar></AppBar>
-<Drawer anchor="right" open={drawer} onClose={() => setDrawer(false)}><Box sx={{ width: 280, p: 2 }}><IconButton onClick={() => setDrawer(false)}><CloseIcon /></IconButton><List>{nav.map(item => <ListItemButton key={item.id} onClick={() => go(item.id)}><ListItemText primary={item.label} /></ListItemButton>)}</List></Box></Drawer>
-<Box id="inicio" sx={{ minHeight: { xs: 580, md: 700 }, color: 'white', display: 'flex', alignItems: 'center', background: `linear-gradient(90deg,rgba(41,32,25,.92),rgba(41,32,25,.35)),url(${hero}) center/cover` }}><Container maxWidth="lg"><Chip label="Prehistoria + tecnología moderna" sx={{ bgcolor: '#fbbf24', color: '#292019', fontWeight: 700 }} /><Typography variant="h1" sx={{ maxWidth: 780, mt: 3, fontSize: { xs: '3rem', md: '5.5rem' } }}>El viaje que nos convirtió en humanos</Typography><Typography variant="h6" sx={{ maxWidth: 650, color: 'rgba(255,255,255,.85)', mb: 4 }}>Explora nuestra evolución, formas de vida, herramientas y los descubrimientos que explican quiénes somos.</Typography><Stack direction={{ xs: 'column', sm: 'row' }} spacing={2}><Button variant="contained" color="secondary" size="large" endIcon={<ArrowDownwardIcon />} onClick={() => go('evolucion')}>Explorar la historia</Button><Button variant="outlined" color="inherit" size="large" onClick={() => { go('curiosidades'); setDialog(true); }}>Datos curiosos</Button></Stack></Container></Box>
-<Container maxWidth="lg" sx={{ py: 8 }}>{data.status === 'loading' && <CircularProgress color="secondary" sx={{ display: 'block', mx: 'auto' }} />}{data.error && <Alert severity="warning" sx={{ mb: 3 }}>{data.error}</Alert>}<section id="evolucion"><SectionTitle eyebrow="01 · Evolución" title="Una especie capaz de adaptarse" text="La historia del Homo sapiens está marcada por la cooperación, la creatividad y la capacidad de aprender de cada generación." /><Grid container spacing={3}>{data.evolucion.map(item => <Grid item xs={12} md={4} key={item.id}><Card sx={{ height: '100%' }}><Box component="img" src={item.image} alt={item.title} sx={{ width: '100%', height: 210, objectFit: 'cover' }} /><CardContent><Chip label={item.period} size="small" color="secondary" /><Typography variant="h5" sx={{ mt: 2 }}>{item.title}</Typography><Typography color="text.secondary">{item.description}</Typography></CardContent></Card></Grid>)}</Grid></section>
-<section id="vida" style={{ marginTop: 100 }}><SectionTitle eyebrow="02 · Vida cotidiana" title="Vivir, colaborar y descubrir" text="Cada día era una oportunidad para conseguir alimento, proteger al grupo y transmitir conocimientos." /><Grid container spacing={3}>{[['🍖','Alimentación','Caza, pesca, frutos y plantas formaban parte de una dieta diversa.'],['⛺','Vivienda','Refugios naturales y estructuras sencillas ofrecían protección.'],['👥','Organización social','La cooperación permitía cuidar a los más vulnerables y compartir recursos.']].map(([icon,title,text]) => <Grid item xs={12} md={4} key={title}><Card sx={{ height: '100%' }}><CardContent><Typography variant="h2">{icon}</Typography><Typography variant="h5">{title}</Typography><Typography color="text.secondary">{text}</Typography></CardContent></Card></Grid>)}</Grid></section>
-<section id="herramientas" style={{ marginTop: 100 }}><SectionTitle eyebrow="03 · Herramientas" title="Ideas que cambiaron la supervivencia" text="La tecnología comenzó con piedra, madera, fuego y la observación del entorno." /><Grid container spacing={3}>{data.herramientas.map(item => <Grid item xs={12} md={4} key={item.id}><Card sx={{ height: '100%' }}><CardContent><Typography variant="h2">{item.icon}</Typography><Chip label={item.use} color="primary" size="small" /><Typography variant="h5" sx={{ mt: 1 }}>{item.name}</Typography><Typography color="text.secondary">{item.description}</Typography></CardContent></Card></Grid>)}</Grid></section>
-<section id="curiosidades" style={{ marginTop: 100 }}><SectionTitle eyebrow="04 · Curiosidades" title="Pequeñas historias, grandes descubrimientos" text="Conoce algunos datos que conectan el pasado con nuestra vida actual." /><Grid container spacing={3}>{data.curiosidades.map(item => <Grid item xs={12} md={4} key={item.id}><Card sx={{ height: '100%' }}><CardContent><Chip label={item.category} color="secondary" size="small" /><Typography variant="h5" sx={{ mt: 2 }}>{item.title}</Typography><Typography color="text.secondary">{item.text}</Typography><Button sx={{ mt: 2 }} onClick={() => setDialog(true)}>Leer más</Button></CardContent></Card></Grid>)}</Grid></section><Alert icon={<AutoAwesomeIcon />} severity="info" sx={{ mt: 8 }}>La aplicación está preparada para consumir REST API mediante `/api/humanos`, `/api/evolucion`, `/api/herramientas` y `/api/curiosidades`.</Alert></Container>
-<Dialog open={dialog} onClose={() => setDialog(false)}><DialogTitle>GraphQL: análisis teórico</DialogTitle><DialogContent dividers><Typography paragraph>GraphQL no está implementado en esta aplicación. Se mantiene REST API como arquitectura principal.</Typography><Typography paragraph>El endpoint que más podría beneficiarse sería <strong>GET /api/evolucion</strong>, porque una pantalla podría solicitar en una sola consulta los datos del humano, su periodo, imagen, características y herramientas relacionadas, recibiendo únicamente los campos necesarios.</Typography></DialogContent><DialogActions><Button onClick={() => setDialog(false)}>Cerrar</Button></DialogActions></Dialog></Box> }
-function SectionTitle({ eyebrow, title, text }: { eyebrow: string; title: string; text: string }) { return <Box sx={{ maxWidth: 720, mb: 4 }}><Typography color="secondary" fontWeight={700} sx={{ letterSpacing: 2, textTransform: 'uppercase', fontSize: 13 }}>{eyebrow}</Typography><Typography variant="h2" sx={{ mt: 1 }}>{title}</Typography><Typography color="text.secondary" fontSize="1.1rem">{text}</Typography></Box>; }
-export default App;
+function getSection(): Section {
+  const value = window.location.hash.replace('#/', '').replace('#', '') as Section;
+  return ['evolucion', 'vida', 'herramientas', 'curiosidades'].includes(value) ? value : 'inicio';
+}
+
+export default function App() {
+  const dispatch = useAppDispatch();
+  const [section, setSection] = useState<Section>(getSection);
+  const data = useAppSelector((state) => state.education);
+
+  useEffect(() => {
+    if (data.status === 'idle') dispatch(loadEducation());
+  }, [data.status, dispatch]);
+
+  useEffect(() => {
+    const onHashChange = () => setSection(getSection());
+    window.addEventListener('hashchange', onHashChange);
+    return () => window.removeEventListener('hashchange', onHashChange);
+  }, []);
+
+  const changeSection = (next: Section) => {
+    window.location.hash = next === 'inicio' ? '/' : `/${next}`;
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  return <Box sx={{ minHeight: '100vh' }}>
+    <Navigation active={section} onNavigate={changeSection} />
+    {section === 'inicio' && <HomePage data={data} onNavigate={changeSection} />}
+    {section === 'evolucion' && <EvolutionPage data={data} />}
+    {section === 'vida' && <DailyLifePage />}
+    {section === 'herramientas' && <ToolsPage data={data} />}
+    {section === 'curiosidades' && <CuriositiesPage data={data} />}
+    <Box component="footer" sx={{ bgcolor: '#292019', color: '#f5efe6', textAlign: 'center', py: 5, px: 2 }}>
+      <Box component="p" sx={{ opacity: .8, m: 0 }}>🧬 Mundo de los Homo sapiens · Prehistoria + tecnología moderna</Box>
+    </Box>
+  </Box>;
+}
