@@ -1,122 +1,24 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mundo de los Homo sapiens</title>
-
-    <style>
-
-        body{
-            font-family: Arial, Helvetica, sans-serif;
-            background-color:#eef5fc;
-            margin:0;
-            text-align:center;
-        }
-
-        header{
-            background:#2c3e50;
-            color:white;
-            padding:25px;
-        }
-
-        h1{
-            margin:0;
-            font-size:45px;
-        }
-
-        .contenido{
-            width:80%;
-            margin:auto;
-            padding:30px;
-        }
-
-        h2{
-            font-size:35px;
-            color:#222;
-        }
-
-        p{
-            font-size:22px;
-            line-height:1.8;
-            text-align:justify;
-        }
-
-        img{
-            width:480px;
-            border-radius:15px;
-            border:3px solid #2c3e50;
-            box-shadow:0px 0px 15px gray;
-            margin-top:20px;
-        }
-
-        .botones{
-            display:flex;
-            justify-content:center;
-            gap:20px;
-            margin-top:30px;
-            flex-wrap:wrap;
-        }
-
-        .boton{
-            display:inline-block;
-            padding:15px 30px;
-            background:#e63946;
-            color:white;
-            text-decoration:none;
-            font-size:22px;
-            border-radius:10px;
-            transition:0.3s;
-        }
-
-        .boton:hover{
-            background:#b51727;
-        }
-
-    </style>
-
+    <meta name="description" content="Explora la evolución, cultura y legado de Homo sapiens.">
+    <title>Homo sapiens | Viaje por la evolución humana</title>
+    <link rel="stylesheet" href="estilos.css">
 </head>
-
 <body>
-
-<header>
-
-    <h1>🌍 Mundo de los <i>Homo sapiens</i></h1>
-
+<header class="hero">
+    <nav class="navbar">
+        <a class="marca" href="proyectopagina.html">🧬 Homo sapiens</a>
+        <div class="nav-links"><a href="#evolucion">Evolución</a><a href="#legado">Legado</a><a class="nav-button" href="datocurioso.html">Dato curioso</a></div>
+    </nav>
+    <div class="hero-content"><span class="eyebrow">Una historia de millones de años</span><h1>El viaje que nos convirtió en <em>humanos</em></h1><p>Descubre cómo nuestra especie evolucionó, se adaptó y transformó el mundo mediante la cooperación, el lenguaje y la creatividad.</p><div class="hero-actions"><a class="button primary" href="#evolucion">Explorar la historia</a><a class="button secondary" href="https://www.youtube.com/watch?v=2M0_yPVu9mk" target="_blank" rel="noopener">▶ Ver video</a></div></div>
 </header>
-
-<div class="contenido">
-
-    <h2>Descripción</h2>
-
-    <p>
-        Los <span style="color:blue;"><strong>Homo sapiens</strong></span> son la única especie humana que ha logrado desarrollar una
-        <span style="color:red;"><strong>inteligencia avanzada</strong></span>, permitiéndoles crear herramientas, comunicarse mediante el lenguaje y formar grandes civilizaciones.
-        Su evolución ha sido fundamental para la
-        <span style="color:blue;"><strong>historia de la humanidad</strong></span> y el desarrollo de la
-        <span style="color:red;"><strong>ciencia, la cultura y la tecnología</strong></span>.
-    </p>
-
-    <img src="homosapies.png" alt="Homo sapiens">
-
-    <div class="botones">
-
-        <a class="boton"
-           href="https://www.youtube.com/watch?v=2M0_yPVu9mk"
-           target="_blank">
-            ▶ Ver video
-        </a>
-
-        <a class="boton"
-           href="datocurioso.html">
-            💡 Datos curiosos
-        </a>
-
-    </div>
-
-</div>
-
+<main>
+    <section class="intro section" id="evolucion"><div class="section-heading"><span class="eyebrow">01 · Nuestra especie</span><h2>Mucho más que supervivencia</h2><p>Los <strong>Homo sapiens</strong> desarrollamos capacidades que cambiaron nuestra historia: imaginamos el futuro, compartimos conocimientos y construimos comunidades.</p></div><div class="feature-grid"><article class="feature-card"><span class="icon">🧠</span><h3>Inteligencia avanzada</h3><p>Resolvimos problemas complejos y creamos herramientas para adaptarnos a distintos ambientes.</p></article><article class="feature-card"><span class="icon">🗣️</span><h3>Lenguaje y cooperación</h3><p>La comunicación nos permitió transmitir ideas, organizar grupos y aprender de cada generación.</p></article><article class="feature-card"><span class="icon">🎨</span><h3>Cultura y creatividad</h3><p>El arte, los símbolos y las tradiciones muestran nuestra necesidad de expresar y comprender el mundo.</p></article></div></section>
+    <section class="image-story section"><div class="story-image"><img src="homosapies.png" alt="Representación de la evolución del Homo sapiens"></div><div class="story-copy"><span class="eyebrow">02 · Adaptación</span><h2>Una especie capaz de adaptarse</h2><p>Desde África, los seres humanos se desplazaron por distintos continentes. Aprendieron a utilizar el fuego, fabricar herramientas, crear refugios y colaborar para superar nuevos desafíos.</p><p>La evolución humana no fue una línea recta: fue una historia de cambios, encuentros y aprendizajes compartidos.</p><a class="text-link" href="datocurioso.html">Conocer un dato sorprendente →</a></div></section>
+    <section class="timeline-section section" id="legado"><div class="section-heading centered"><span class="eyebrow">03 · Una línea de tiempo</span><h2>Hitos de nuestra historia</h2></div><div class="timeline"><article class="timeline-item"><span class="timeline-date">Hace 300.000 años</span><h3>Aparecen los Homo sapiens</h3><p>Nuestra especie surge en África y comienza a desarrollar nuevas formas de organización social.</p></article><article class="timeline-item"><span class="timeline-date">Hace 70.000 años</span><h3>Expansión por el mundo</h3><p>Las migraciones llevan a los seres humanos a explorar y habitar nuevos territorios.</p></article><article class="timeline-item"><span class="timeline-date">Hace 12.000 años</span><h3>Nacen las primeras comunidades</h3><p>La agricultura y la vida sedentaria impulsan poblaciones más grandes y nuevas culturas.</p></article></div></section>
+</main><footer><p>🧬 Explorando nuestro origen para comprender nuestro futuro.</p><a href="datocurioso.html">Siguiente: datos curiosos →</a></footer>
 </body>
-
 </html>
