@@ -1,3 +1,1 @@
-html { background: #f1f5f9; }
-body { margin: 0; min-width: 320px; }
-* { box-sizing: border-box; }
+html{scroll-behavior:smooth;background:#f5efe6}body{margin:0;min-width:320px;background:radial-gradient(circle at 10% 20%,rgba(217,119,6,.06),transparent 25%),#f5efe6}*{box-sizing:border-box}section{scroll-margin-top:90px}.MuiCard-root{overflow:hidden;transition:transform .2s ease,box-shadow .2s ease}.MuiCard-root:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(72,48,27,.12)}
