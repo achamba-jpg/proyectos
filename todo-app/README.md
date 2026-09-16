@@ -1,197 +1,40 @@
-# 📝 Aplicación Todo List
+# 📝 TaskFlow — Todo App profesional
 
-## Descripción
+Aplicación de gestión de tareas migrada a **React + Redux Toolkit + TypeScript + Material UI**. La migración conserva las funciones de la versión original: crear, completar, eliminar, priorizar, filtrar, ordenar, limpiar completadas, importar/exportar JSON, reiniciar y guardar en `localStorage`.
 
-Aplicación de gestión de tareas moderna y funcional con almacenamiento local (localStorage). Diseñada para ser simple, intuitiva y completamente responsiva.
+## Ejecutar
 
-## ✨ Características
-
-### 📌 Funcionalidades Principales
-- ✅ **Agregar tareas** - Agrega nuevas tareas con Enter o botón
-- ✅ **Completar tareas** - Marca tareas como completadas
-- ✅ **Eliminar tareas** - Borra tareas individuales
-- ✅ **Establecer prioridad** - Alto, Medio, Bajo
-- ✅ **Filtrar tareas** - Todas, Pendientes, Completadas
-- ✅ **Ordenar** - Ordena por prioridad
-- ✅ **Limpiar completadas** - Elimina todas las tareas completadas
-- ✅ **Estadísticas** - Muestra total, pendientes y completadas
-- ✅ **Exportar datos** - Descarga tareas como JSON
-- ✅ **Importar datos** - Carga tareas desde archivo JSON
-- ✅ **LocalStorage** - Guarda automáticamente en navegador
-
-### 🎨 Diseño
-- Interfaz moderna y colorida
-- Totalmente responsiva (móvil, tablet, desktop)
-- Animaciones suaves
-- Gradientes atractivos
-- Dark-mode ready
-
-## 🚀 Cómo Usar
-
-### Instalación
 ```bash
-# Solo abre index.html en tu navegador
-open todo-app/index.html
+cd todo-app
+npm install
+npm run dev
 ```
 
-### Uso Básico
+Para comprobar la compilación de producción:
 
-1. **Agregar tarea**
-   ```
-   Escribe en el input y presiona Enter o click en Agregar
-   ```
-
-2. **Completar tarea**
-   ```
-   Click en el checkbox para marcar como completada
-   ```
-
-3. **Cambiar prioridad**
-   ```
-   Click en el botón ⭐ para cambiar entre Alto/Medio/Bajo
-   ```
-
-4. **Filtrar**
-   ```
-   Usa los botones: Todas, Pendientes, Completadas
-   ```
-
-5. **Exportar/Importar**
-   ```
-   Usa los botones en el footer para descargar o cargar tareas
-   ```
-
-## 📂 Estructura de Archivos
-
-```
-todo-app/
-├── index.html       # Estructura HTML
-├── styles.css       # Estilos CSS
-├── script.js        # Lógica JavaScript
-└── README.md        # Este archivo
+```bash
+npm run build
 ```
 
-## 💾 Almacenamiento Local
+## Arquitectura
 
-Todas tus tareas se guardan automáticamente en **localStorage** del navegador:
-- Las tareas persisten después de cerrar el navegador
-- No requiere servidor
-- 100% privadas en tu dispositivo
+- **React + TypeScript:** componentes reutilizables y tipado de tareas, prioridades y filtros.
+- **Redux Toolkit:** estado global predecible en `src/taskSlice.ts`; la suscripción de `src/store.ts` persiste cambios en `localStorage`.
+- **Material UI:** `AppBar`, `Card`, `TextField`, `Button`, `Tabs`, `Chip`, `Dialog`, `Menu`, `List` y `Alert` para una interfaz responsive.
+- **REST API:** se mantiene como arquitectura para una futura conexión con backend. Esta versión no agrega una API ficticia ni sustituye REST por GraphQL.
 
-### Datos Guardados
-```json
-{
-  "id": "timestamp",
-  "text": "Descripción de la tarea",
-  "completed": false,
-  "priority": "medium",
-  "createdAt": "12/08/2026, 10:30:45"
-}
-```
+## Parte 8 de Full Stack Open: GraphQL
 
-## 🎯 Ejemplos de Uso
+GraphQL permite que el cliente solicite exactamente los campos que necesita mediante una consulta contra un único endpoint. El servidor expone un esquema tipado y resuelve esos datos, lo que puede evitar respuestas con información innecesaria o varias peticiones REST. Las operaciones principales son consultas (`query`), modificaciones (`mutation`) y, cuando se requiere tiempo real, suscripciones (`subscription`).
 
-### Agregar una tarea
-```
-1. Escribe: "Comprar leche"
-2. Presiona Enter
-3. ¡Tarea agregada!
-```
+La relación con este miniproyecto es conceptual: si las tareas vivieran en un backend, GraphQL podría entregar en una sola consulta la lista, sus prioridades y estadísticas. Sin embargo, el requisito del proyecto es conservar REST; por eso no se instala Apollo ni se cambia la arquitectura.
 
-### Cambiar prioridad
-```
-1. Click en el botón ⭐ de una tarea
-2. Cicla entre: Bajo → Medio → Alto → Bajo
-3. Las tareas se reordenan automáticamente
-```
+### Endpoint que más podría beneficiarse
 
-### Exportar datos
-```
-1. Click en "📥 Exportar Datos"
-2. Se descarga un archivo tareas_TIMESTAMP.json
-3. Guárdalo de forma segura
-```
+El endpoint hipotético `GET /api/tasks?filter=pending&include=statistics` sería el mejor candidato. Una consulta GraphQL podría pedir tareas pendientes, `id`, `text`, `priority` y los contadores de total/completadas en una sola respuesta, sin enviar campos que la pantalla no usa. Aun así, para este miniproyecto se mantiene REST porque es más simple, suficiente y cumple la arquitectura solicitada.
 
-## 🛠️ Opciones Avanzadas
+## Evidencias para entregar
 
-### Limpiar Completadas
-- Elimina todas las tareas marcadas como completadas
-- Requiere confirmación
-
-### Ordenar
-- Ordena todas las tareas por prioridad (Alto → Medio → Bajo)
-
-### Reiniciar
-- Borra TODAS las tareas (requiere confirmación)
-- Limpia localStorage
-
-## 📊 Estadísticas
-
-La aplicación muestra en tiempo real:
-- **Total**: Número de tareas en total
-- **Pendientes**: Tareas no completadas
-- **Completadas**: Tareas finalizadas
-
-## 🎨 Colores
-
-- **Primario**: #3b82f6 (Azul)
-- **Secundario**: #8b5cf6 (Púrpura)
-- **Success**: #10b981 (Verde)
-- **Danger**: #ef4444 (Rojo)
-- **Warning**: #f59e0b (Naranja)
-
-## 📱 Responsive Design
-
-- **Desktop**: >600px - Diseño completo
-- **Tablet**: 600px - Interfaz adaptada
-- **Móvil**: <600px - Optimizado para pantallas pequeñas
-
-## 🔒 Privacidad
-
-- ✅ Los datos se guardan localmente en tu navegador
-- ✅ No se envían datos a servidores
-- ✅ No hay cookies de rastreo
-- ✅ 100% privado
-
-## 🐛 Solución de Problemas
-
-### Las tareas no se guardan
-- Verifica que localStorage esté habilitado en tu navegador
-- Limpia la caché del navegador
-- Intenta en una ventana privada
-
-### No puedo importar datos
-- Asegúrate que el archivo sea JSON válido
-- Verifica el formato de los datos
-
-### La aplicación no responde
-- Recarga la página
-- Limpia el localStorage
-- Reinicia el navegador
-
-## 📈 Próximas Mejoras
-
-- [ ] Dark mode completo
-- [ ] Categorías de tareas
-- [ ] Recordatorios
-- [ ] Sincronización en la nube
-- [ ] Editar tareas inline
-- [ ] Búsqueda de tareas
-- [ ] Temas personalizables
-
-## 👨‍💻 Tecnologías
-
-- HTML5
-- CSS3 (Grid, Flexbox, Gradientes)
-- JavaScript vanilla (sin frameworks)
-- LocalStorage API
-
-## 📄 Licencia
-
-MIT License - Libre para usar y modificar
-
----
-
-**Creado con ❤️ para gestionar tus tareas de forma simple**
-
-*Última actualización: 12/08/2026*
+1. Ejecuta `npm run dev` y toma una captura de la pantalla principal con las tarjetas de estadísticas, formulario, pestañas y tareas.
+2. Toma otra captura con el menú de tres puntos abierto para evidenciar los componentes Material UI.
+3. Puedes usar el párrafo de la sección “Endpoint que más podría beneficiarse” como explicación breve de GraphQL. No es necesario tomar una foto de esa parte.
